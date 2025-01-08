@@ -1,0 +1,1 @@
+([('script', '/Users/Gacox/Documents/Coding/YT/dist/script', 'EXECUTABLE')],)
