@@ -4,7 +4,10 @@ import yt_dlp
 import tkinter as tk
 from tkinter import messagebox
 
-def download_video(url, output_path='video'):
+def download_video(url, output_path=None):
+    if output_path is None:
+        output_path = os.path.join(os.getenv('USERPROFILE'), 'Downloads', 'video')
+
     ydl_opts = {
         'format': 'bestvideo+bestaudio/best',
         'outtmpl': output_path + '.%(ext)s'
