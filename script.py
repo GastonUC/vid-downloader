@@ -6,7 +6,12 @@ from tkinter import messagebox
 
 def download_video(url, output_path=None):
     if output_path is None:
-        output_path = os.path.join(os.getenv('USERPROFILE'), 'Downloads', 'video')
+        if os.path.exists(os.path.join(os.path.expanduser("~"), "Downloads")):
+            output_path = os.path.join(os.path.expanduser("~"), "Downloads", 'video')
+        elif os.path.exists(os.path.join(os.path.expanduser("~"), "Descargas")):
+            output_path = os.path.join(os.path.expanduser("~"), "Descargas", 'video')
+        else:
+            output_path = os.path.join(os.path.expanduser("~"), 'video')
 
     ydl_opts = {
         'format': 'bestvideo+bestaudio/best',
